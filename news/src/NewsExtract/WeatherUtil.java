@@ -54,9 +54,13 @@ public class WeatherUtil {
 		String tmp = location;
 		if (location.length() > 4)
 			tmp = location.substring(0, 4);
-		if (!airport.containsKey(tmp))
-			return null;
-		String airCode = airport.get(tmp);
+		String airCode = null;
+		if (!airport.containsKey(tmp)) {
+			if (tmp.charAt(0) == 'Z')
+				airCode = tmp;
+		} else {
+			airCode = airport.get(tmp);
+		}
 		if (airCode.length() > 4)
 			airCode = airCode.substring(0, 4);
 		String[] dates = date.split("-");
