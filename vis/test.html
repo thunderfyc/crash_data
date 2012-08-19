@@ -7,16 +7,18 @@
 
       function drawRegionsMap() {
         var data = google.visualization.arrayToDataTable([
-          ['Country', 'Popularity'],
-          ['Germany', 200],
-          ['United States', 300],
-          ['Brazil', 400],
-          ['Canada', 500],
-          ['France', 600],
-          ['RU', 700]
+          ['City', 'Popularity'],
+          ['CN-33', 200],
+          ['CN-45', 300],
+          ['CN-64', 400],
+          ['CN-54', 500]
         ]);
 
-        var options = {};
+        var options = {
+		region:"CN",
+		displayMode:'region',
+		resolution:'provinces'
+		};
 
         var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
         chart.draw(data, options);
